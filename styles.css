@@ -47,7 +47,7 @@ body {
 
 .header .subtitle {
   font-size: 1.3rem;
-  color: #07e93c;
+  color: #4ca96e;
   margin-bottom: 15px;
   font-weight: 600;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
@@ -143,20 +143,20 @@ body {
 
 /* Lien article */
 .article-link {
-  color: #239e3f;
+  color: #357155;
   text-decoration: none;
   font-weight: 600;
   padding: 8px 16px;
-  border: 2px solid #07e93c;
+  border: 2px solid #4ca96e;
   border-radius: 25px;
-  background: rgba(7, 233, 60, 0.1);
+  background: rgba(76, 169, 110, 0.1);
   transition: all 0.3s ease;
   display: inline-block;
   margin-top: 10px;
 }
 
 .article-link:hover {
-  background: #239e3f;
+  background: #357155;
   color: white;
   transform: translateY(-2px);
 }
