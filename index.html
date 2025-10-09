@@ -1,64 +1,566 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bastdons - Tournoi caritatif vidéoludique pour les sans-abris de Nancy</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="description"
+        content="La Bast'Don - Tournoi caritatif vidéoludique pour les sans-abris de Nancy. Participez à notre mission solidaire.">
+    <title>La Bast'Don - Tournoi vidéoludique caritatif pour les sans-abris de Nancy</title>
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="img/background.jpg" as="image" type="image/jpeg">
+    <link rel="preload" href="img/logo_v1.png" as="image" type="image/png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bastdons-blue': '#1e3a8a',
+                        'bastdons-light-blue': '#3b82f6',
+                        'bastdons-accent': '#06b6d4',
+                        'bastdons-dark': '#1e293b',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 
-<body>
-    <div class="container">
-        <header class="header">
-            <img src="img/logo_v1.png" alt="Logo Bastdons" class="logo">
-            <div class="subtitle">Tournoi caritatif vidéoludique pour les sans-abris de Nancy</div>
-        </header>
+<body class="bg-gray-50 font-sans antialiased">
 
-        <div class="simple-content">
-            <div class="mission-section">
-                <h2 class="section-title">🎯 Notre Mission</h2>
-                <p class="mission-text">Organiser chaque année un tournoi de jeux vidéo dont les bénéfices servent à
-                    acheter et distribuer des biens essentiels pour les plus démunis de la ville.</p>
-                <p class="mission-text"><strong>Partenaires :</strong> Unis&Solidaires Vandoeuvre</p>
-                <p class="mission-text"><strong>Dernière édition :</strong> 1633€ récoltés - Achats de vêtements chauds
-                </p>
-                <p class="mission-text">
-                    <a href="https://nancy.cesi.fr/fr/actualites/bastdon-un-tournoi-caritatif-sur-le-campus-de-nancy-au-profit-des-sans-abris/"
-                        target="_blank" class="article-link">
-                        Lire l'article complet sur le site de CESI
-                    </a>
-                </p>
-            </div>
-
-            <div class="highscore-section">
-                <img src="img/bastdons_highscore.png" alt="Highscore Bastdons" class="highscore-image">
-            </div>
-
-            <div class="highscore-section">
-                <img src="img/DSCF3524-CR.jpg" alt="pic1 bastdons" class="highscore-image">
-            </div>
-
-            <div class="partners-section">
-                <h2 class="section-title">Nos Partenaires</h2>
-                <div class="partners-grid">
-                    <img src="img/logo_BDE_noir.png" alt="Logo BDE" class="partner-logo">
-                    <img src="img/Smash-Grand-Est-RGB-Full-Default.png" alt="Logo Smash Grand Est" class="partner-logo">
-                    <img src="img/Logo_cesi_2022.png" alt="Logo CESI" class="partner-logo">
-                    <img src="img/Logo-DW-Model-2021-06072022.webp" alt="Logo DW Model" class="partner-logo">
-                    <img src="img/logo_ntsc_2022_vFINALE_complet_black.png" alt="Logo NTSC" class="partner-logo">
-                    <img src="img/croppedimage-485a1d88c61844b79261c42ad3354645.png" alt="Logo U&S"
-                        class="partner-logo">
-                    <img src="img/LF.png" alt="Logo LF" class="partner-logo">
+    <!-- Header avec navigation sticky -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <img src="img/logo_v1.png" alt="Logo Bastdon" class="h-16 w-auto md:h-20">
                 </div>
+
+                <!-- Navigation et CTA -->
+                <nav class="hidden md:flex items-center gap-6">
+                    <a href="#mission"
+                        class="text-gray-700 hover:text-bastdons-accent font-medium transition-colors">Notre
+                        Mission</a>
+                    <a href="#impact"
+                        class="text-gray-700 hover:text-bastdons-accent font-medium transition-colors">Notre
+                        Impact</a>
+                    <a href="#galerie"
+                        class="text-gray-700 hover:text-bastdons-accent font-medium transition-colors">Galerie</a>
+                    <a href="#partenaires"
+                        class="text-gray-700 hover:text-bastdons-accent font-medium transition-colors">Partenaires</a>
+                    <!-- <a href="#contact"
+                        class="bg-bastdons-blue hover:bg-bastdons-accent text-white px-6 py-3 rounded-full font-semibold transition-all transform hover:scale-105 shadow-lg">Donner</a> -->
+                    <a href="#benevole"
+                        class="border-2 border-bastdons-blue text-bastdons-accent hover:bg-bastdons-blue hover:text-white px-6 py-3 rounded-full font-semibold transition-all">Devenir
+                        bénévole</a>
+                </nav>
+
+                <!-- Mobile CTA -->
+                <!-- <div class="flex md:hidden gap-2">
+                    <a href="#contact"
+                        class="bg-bastdons-blue hover:bg-bastdons-accent text-white px-4 py-2 rounded-full font-semibold text-sm transition-all shadow-lg">Donner</a>
+                </div> -->
             </div>
         </div>
+    </header>
 
-        <footer class="footer">
-            <p>© 2025 Bastdons - Tournoi caritatif vidéoludique pour les sans-abris de Nancy</p>
-            <p>Développé avec ❤️ pour la solidarité et l'entraide</p>
-        </footer>
+    <main>
+        <!-- Section Hero avec image de fond -->
+        <section class="relative bg-cover bg-center h-[600px] md:h-[700px] flex items-center"
+            style="background-image: linear-gradient(rgba(30, 58, 138, 0.7), rgba(6, 182, 212, 0.5)), url('img/background.jpg');">
+            <div class="container mx-auto px-4 text-center text-white">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-lg">
+                    Ensemble pour les sans-abris de Nancy
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto drop-shadow-md">
+                    Tournoi caritatif vidéoludique dont les bénéfices servent à acheter et distribuer des biens
+                    essentiels pour les plus démunis
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <!-- <a href="#contact"
+                        class="bg-bastdons-blue hover:bg-bastdons-accent text-white px-8 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105 shadow-2xl">
+                        Faire un don maintenant
+                    </a> -->
+                    <a href="#benevole"
+                        class="border-2 border-white hover:bg-white hover:text-gray-900 text-white px-8 py-4 rounded-full font-bold text-lg transition-all">
+                        Devenir bénévole
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Mission -->
+        <section id="mission" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                        🎯 Notre Mission
+                    </h2>
+                    <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-6">
+                        Organiser chaque année un tournoi de jeux vidéo dont les bénéfices servent à acheter et
+                        distribuer des biens essentiels pour les plus démunis de la ville.
+                    </p>
+                    <div class="bg-bastdons-blue/10 border-l-4 border-bastdons-accent p-6 rounded-lg text-left">
+                        <p class="text-gray-800 mb-2">
+                            <span class="font-semibold">Association bénéficiaire :</span>
+                            <a href="https://www.facebook.com/p/Unis-Solidaires-100066975258774/" target="_blank"
+                                rel="noopener noreferrer"
+                                class="text-bastdons-accent hover:text-bastdons-blue transition-colors">Unis &
+                                Solidaires Vandoeuvre</a>
+                        </p>
+                        <p class="text-gray-800">
+                            <span class="font-semibold">Dernière édition :</span> 1633€ récoltés - Achats de vêtements
+                            chauds
+                        </p>
+                    </div>
+                    <div class="mt-8">
+                        <a href="https://nancy.cesi.fr/fr/actualites/bastdon-un-tournoi-caritatif-sur-le-campus-de-nancy-au-profit-des-sans-abris/"
+                            target="_blank" rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 bg-bastdons-accent hover:bg-bastdons-blue text-white px-6 py-3 rounded-full font-semibold transition-all transform hover:scale-105 shadow-lg">
+                            Lire l'article complet sur CESI
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Notre Impact (Chiffres clés) -->
+        <section id="impact" class="py-16 md:py-24 bg-gray-100">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-gray-900 mb-12">
+                    📊 Notre Impact
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <!-- Carte Impact 1 -->
+                    <div
+                        class="bg-white rounded-2xl shadow-lg p-8 text-center transform hover:scale-105 transition-transform">
+                        <div class="text-5xl md:text-6xl font-bold text-bastdons-accent mb-4">1633€</div>
+                        <p class="text-xl font-semibold text-gray-800 mb-2">Récoltés</p>
+                        <p class="text-gray-600">Lors de notre dernière édition</p>
+                    </div>
+
+                    <!-- Carte Impact 2 -->
+                    <div
+                        class="bg-white rounded-2xl shadow-lg p-8 text-center transform hover:scale-105 transition-transform">
+                        <div class="text-5xl md:text-6xl font-bold text-bastdons-accent mb-4">100+</div>
+                        <p class="text-xl font-semibold text-gray-800 mb-2">Personnes aidées</p>
+                        <p class="text-gray-600">Vêtements chauds distribués</p>
+                    </div>
+
+                    <!-- Carte Impact 3 -->
+                    <div
+                        class="bg-white rounded-2xl shadow-lg p-8 text-center transform hover:scale-105 transition-transform">
+                        <div class="text-5xl md:text-6xl font-bold text-bastdons-accent mb-4">7</div>
+                        <p class="text-xl font-semibold text-gray-800 mb-2">Partenaires</p>
+                        <p class="text-gray-600">Qui nous soutiennent</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Galerie Photos -->
+        <section id="galerie" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-gray-900 mb-12">
+                    📸 En Images
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <!-- Photo 1 -->
+                    <button
+                        class="w-full overflow-hidden rounded-2xl shadow-lg transform hover:scale-105 transition-transform cursor-pointer focus:outline-none focus:ring-2 focus:ring-bastdons-accent"
+                        onclick="openLightbox('img/bastdons_highscore.png', 'Tableau des scores du tournoi Bastdon')"
+                        aria-label="Ouvrir l'image : Tableau des scores du tournoi Bastdon">
+                        <picture>
+                            <source srcset="img/bastdons_highscore.webp" type="image/webp">
+                            <img src="img/bastdons_highscore.png" alt="Tableau des scores du tournoi Bastdon"
+                                class="w-full h-64 object-cover" loading="lazy" decoding="async" fetchpriority="low">
+                        </picture>
+                    </button>
+
+                    <!-- Photo 2 -->
+                    <button
+                        class="w-full overflow-hidden rounded-2xl shadow-lg transform hover:scale-105 transition-transform cursor-pointer focus:outline-none focus:ring-2 focus:ring-bastdons-accent"
+                        onclick="openLightbox('img/DSCF3524-CR.jpg', 'Participants au tournoi Bastdon')"
+                        aria-label="Ouvrir l'image : Participants au tournoi Bastdon">
+                        <picture>
+                            <source srcset="img/DSCF3524-CR.webp" type="image/webp">
+                            <img src="img/DSCF3524-CR.jpg" alt="Participants au tournoi Bastdon"
+                                class="w-full h-64 object-cover" loading="lazy" decoding="async" fetchpriority="low">
+                        </picture>
+                    </button>
+
+                    <!-- Photo 3 -->
+                    <button
+                        class="w-full overflow-hidden rounded-2xl shadow-lg transform hover:scale-105 transition-transform cursor-pointer focus:outline-none focus:ring-2 focus:ring-bastdons-accent"
+                        onclick="openLightbox('img/post_all-not-split.jpg', 'Affiche du tournoi Bastdon')"
+                        aria-label="Ouvrir l'image : Affiche du tournoi Bastdon">
+                        <picture>
+                            <source srcset="img/post_all-not-split.webp" type="image/webp">
+                            <img src="img/post_all-not-split.jpg" alt="Affiche du tournoi Bastdon"
+                                class="w-full h-64 object-cover" loading="lazy" decoding="async" fetchpriority="low">
+                        </picture>
+                    </button>
+
+                    <!-- Photo 4 -->
+                    <button
+                        class="w-full overflow-hidden rounded-2xl shadow-lg transform hover:scale-105 transition-transform cursor-pointer focus:outline-none focus:ring-2 focus:ring-bastdons-accent"
+                        onclick="openLightbox('img/post_split-03.jpg', 'Affiche du tournoi Bastdon')"
+                        aria-label="Ouvrir l'image : Affiche du tournoi Bastdon">
+                        <picture>
+                            <source srcset="img/post_split-03.webp" type="image/webp">
+                            <img src="img/post_split-03.jpg" alt="Affiche du tournoi Bastdon"
+                                class="w-full h-64 object-cover" loading="lazy" decoding="async" fetchpriority="low">
+                        </picture>
+                    </button>
+
+                    <!-- Photo 5 -->
+                    <button
+                        class="w-full overflow-hidden rounded-2xl shadow-lg transform hover:scale-105 transition-transform cursor-pointer focus:outline-none focus:ring-2 focus:ring-bastdons-accent"
+                        onclick="openLightbox('img/IMG_7941.JPG', 'Présentateurs du tournoi Bastdon')"
+                        aria-label="Ouvrir l'image : Présentateurs du tournoi Bastdon">
+                        <picture>
+                            <source srcset="img/IMG_7941.webp" type="image/webp">
+                            <img src="img/IMG_7941.JPG" alt="Présentateurs du tournoi Bastdon"
+                                class="w-full h-64 object-cover" loading="lazy" decoding="async" fetchpriority="low">
+                        </picture>
+                    </button>
+
+                    <!-- Photo 6 -->
+                    <button
+                        class="w-full overflow-hidden rounded-2xl shadow-lg transform hover:scale-105 transition-transform cursor-pointer focus:outline-none focus:ring-2 focus:ring-bastdons-accent"
+                        onclick="openLightbox('img/IMG_7996.jpg', 'Jeunes joueurs')"
+                        aria-label="Ouvrir l'image : Jeunes joueurs">
+                        <picture>
+                            <source srcset="img/IMG_7996.webp" type="image/webp">
+                            <img src="img/IMG_7996.jpg" alt="Jeunes joueurs"
+                                class="w-full h-64 object-cover" loading="lazy" decoding="async" fetchpriority="low">
+                        </picture>
+                    </button>
+
+                    <!-- Photo 7 -->
+                    <button
+                        class="w-full overflow-hidden rounded-2xl shadow-lg transform hover:scale-105 transition-transform cursor-pointer focus:outline-none focus:ring-2 focus:ring-bastdons-accent"
+                        onclick="openLightbox('img/IMG_8022.jpg', 'Commentateurs')"
+                        aria-label="Ouvrir l'image : Commentateurs">
+                        <picture>
+                            <source srcset="img/IMG_8022.webp" type="image/webp">
+                            <img src="img/IMG_8022.jpg" alt="Commentateurs"
+                                class="w-full h-64 object-cover" loading="lazy" decoding="async" fetchpriority="low">
+                        </picture>
+                    </button>
+
+                    <!-- Photo 8 -->
+                    <button
+                        class="w-full overflow-hidden rounded-2xl shadow-lg transform hover:scale-105 transition-transform cursor-pointer focus:outline-none focus:ring-2 focus:ring-bastdons-accent"
+                        onclick="openLightbox('img/IMG_8053-2.jpg', 'Jeunes participants au tournoi')"
+                        aria-label="Ouvrir l'image : Jeunes participants au tournoi">
+                        <picture>
+                            <source srcset="img/IMG_8053-2.webp" type="image/webp">
+                            <img src="img/IMG_8053-2.jpg" alt="Jeunes participants au tournoi"
+                                class="w-full h-64 object-cover" loading="lazy" decoding="async" fetchpriority="low">
+                        </picture>
+                    </button>
+                    <button
+                        class="w-full overflow-hidden rounded-2xl shadow-lg transform hover:scale-105 transition-transform cursor-pointer focus:outline-none focus:ring-2 focus:ring-bastdons-accent"
+                        onclick="openLightbox('img/IMG_0806.png', 'Salle du tournoi Bastdon')"
+                        aria-label="Ouvrir l'image : Salle du tournoi Bastdon">
+                        <picture>
+                            <source srcset="img/IMG_0806.webp" type="image/webp">
+                            <img src="img/IMG_0806.png" alt="Salle du tournoi Bastdon"
+                                class="w-full h-64 object-cover" loading="lazy" decoding="async" fetchpriority="low">
+                        </picture>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Partenaires -->
+        <section id="partenaires" class="py-16 md:py-24 bg-gray-100">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-gray-900 mb-12">
+                    🤝 Nos Partenaires
+                </h2>
+                <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+                    Ils nous font confiance et nous soutiennent dans notre mission solidaire
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                    <!-- Partenaire 1 -->
+                    <div
+                        class="bg-white rounded-xl shadow-md p-6 flex items-center justify-center hover:shadow-xl transition-shadow">
+                        <img src="img/logo_BDE_noir.png" alt="Logo BDE CESI Nancy"
+                            class="max-w-full max-h-24 object-contain" loading="lazy">
+                    </div>
+
+                    <!-- Partenaire 2 -->
+                    <div
+                        class="bg-white rounded-xl shadow-md p-6 flex items-center justify-center hover:shadow-xl transition-shadow">
+                        <img src="img/Smash-Grand-Est-RGB-Full-Default.png" alt="Logo Smash Grand Est"
+                            class="max-w-full max-h-24 object-contain" loading="lazy">
+                    </div>
+
+                    <!-- Partenaire 3 -->
+                    <div
+                        class="bg-white rounded-xl shadow-md p-6 flex items-center justify-center hover:shadow-xl transition-shadow">
+                        <img src="img/Logo_cesi_2022.png" alt="Logo CESI École d'Ingénieurs"
+                            class="max-w-full max-h-24 object-contain" loading="lazy">
+                    </div>
+
+                    <!-- Partenaire 4 -->
+                    <div
+                        class="bg-white rounded-xl shadow-md p-6 flex items-center justify-center hover:shadow-xl transition-shadow">
+                        <img src="img/Logo-DW-Model-2021-06072022.webp" alt="Logo DW Model"
+                            class="max-w-full max-h-24 object-contain" loading="lazy">
+                    </div>
+
+                    <!-- Partenaire 5 -->
+                    <div
+                        class="bg-white rounded-xl shadow-md p-6 flex items-center justify-center hover:shadow-xl transition-shadow">
+                        <img src="img/logo_ntsc_2022_vFINALE_complet_black.png" alt="Logo NTSC"
+                            class="max-w-full max-h-24 object-contain" loading="lazy">
+                    </div>
+
+                    <!-- Partenaire 6 -->
+                    <div
+                        class="bg-white rounded-xl shadow-md p-6 flex items-center justify-center hover:shadow-xl transition-shadow">
+                        <img src="img/croppedimage-485a1d88c61844b79261c42ad3354645.png"
+                            alt="Logo Unis & Solidaires Vandoeuvre" class="max-w-full max-h-24 object-contain"
+                            loading="lazy">
+                    </div>
+
+                    <!-- Partenaire 7 -->
+                    <div
+                        class="bg-white rounded-xl shadow-md p-6 flex items-center justify-center hover:shadow-xl transition-shadow">
+                        <img src="img/LF.png" alt="Logo LF" class="max-w-full max-h-24 object-contain" loading="lazy">
+                    </div>
+
+                    <!-- Partenaire 8 -->
+                    <div
+                        class="bg-white rounded-xl shadow-md p-6 flex items-center justify-center hover:shadow-xl transition-shadow">
+                        <img src="img/Logo_Région_Grand_Est_-_2022.svg.png" alt="Logo Grandest"
+                            class="max-w-full max-h-24 object-contain" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section CTA Finale -->
+        <section id="benevole" class="py-16 md:py-24 bg-gradient-to-r from-bastdons-accent to-bastdons-blue">
+            <div class="container mx-auto px-4 text-center text-white">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+                    Rejoignez-nous !
+                </h2>
+                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+                    Que vous souhaitiez participer au tournoi ou devenir bénévole, chaque action compte
+                    pour aider les plus démunis.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <!-- <a href="#contact"
+                        class="bg-white hover:bg-gray-100 text-bastdons-accent px-8 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105 shadow-2xl">
+                        Faire un don
+                    </a> -->
+                    <a href="mailto:jessy_drouin@protonmail.com"
+                        class="border-2 border-white hover:bg-white hover:text-bastdons-accent text-white px-8 py-4 rounded-full font-bold text-lg transition-all">
+                        Nous contacter
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <!-- À propos -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">La Bast'don</h3>
+                    <p class="text-gray-400 mb-4">
+                        Tournoi vidéoludique caritatif pour les sans-abris de Nancy. Une initiative solidaire portée par
+                        des joueurs vétérans !
+
+                    </p>
+                    <img src="img/logo_v1_wh.png" alt="Logo Bastdon" class="h-16 w-auto opacity-80">
+                </div>
+
+                <!-- Liens rapides -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Liens rapides</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#mission" class="text-gray-400 hover:text-bastdons-blue transition-colors">Notre
+                                Mission</a></li>
+                        <li><a href="#impact" class="text-gray-400 hover:text-bastdons-blue transition-colors">Notre
+                                Impact</a></li>
+                        <li><a href="#galerie"
+                                class="text-gray-400 hover:text-bastdons-blue transition-colors">Galerie</a></li>
+                        <li><a href="#partenaires"
+                                class="text-gray-400 hover:text-bastdons-blue transition-colors">Partenaires</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact & Réseaux sociaux -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact & Réseaux</h3>
+                    <ul class="space-y-2 mb-4">
+                        <li class="text-gray-400">
+                            📧 <a href="mailto:contact@bastdons.org"
+                                class="hover:text-bastdons-blue transition-colors">contact@bastdons.org</a>
+                        </li>
+                        <li class="text-gray-400">
+                            📍 Nancy, France
+                        </li>
+                    </ul>
+                    <div class="flex gap-4">
+                        <a href="https://discord.gg/Ax2AbU2MMu" target="_blank" rel="noopener noreferrer"
+                            class="bg-gray-800 hover:bg-bastdons-accent p-3 rounded-full transition-colors"
+                            aria-label="Rejoindre notre serveur Discord">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419-.0002 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1568 2.4189Z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ligne de séparation -->
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400">
+                    © 2025 La Bast'don - Tournoi vidéoludique caritatif pour les sans-abris de Nancy
+                </p>
+                <p class="text-gray-500 mt-2">
+                    Développé avec ❤️ pour la solidarité et l'entraide
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox"
+        class="fixed inset-0 z-50 hidden bg-black bg-opacity-95 flex items-center justify-center p-2 sm:p-4">
+        <div class="relative w-full h-full flex items-center justify-center">
+            <!-- Bouton fermer -->
+            <button onclick="closeLightbox()"
+                class="absolute top-2 right-2 sm:top-4 sm:right-4 text-white hover:text-bastdons-accent transition-colors text-3xl sm:text-4xl font-bold z-10 bg-black bg-opacity-50 rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center">
+                ×
+            </button>
+
+            <!-- Image -->
+            <img id="lightbox-image" src="" alt="" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+                style="max-height: calc(100vh - 2rem); max-width: calc(100vw - 2rem);">
+
+            <!-- Légende -->
+            <div id="lightbox-caption"
+                class="absolute bottom-2 left-2 right-2 sm:bottom-4 sm:left-4 sm:right-4 text-white text-center bg-black bg-opacity-70 rounded-lg p-2 sm:p-3 text-sm sm:text-base">
+                <!-- La légende sera remplie par JavaScript -->
+            </div>
+        </div>
     </div>
+
+    <!-- Scripts -->
+    <script>
+        // Fonction pour ouvrir le lightbox
+        function openLightbox(imageSrc, caption) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightbox-image');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+
+            // Réinitialiser l'image
+            lightboxImage.src = '';
+            lightboxImage.style.width = 'auto';
+            lightboxImage.style.height = 'auto';
+
+            // Charger la nouvelle image
+            lightboxImage.src = imageSrc;
+            lightboxImage.alt = caption;
+            lightboxCaption.textContent = caption;
+
+            // Afficher le lightbox
+            lightbox.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Empêche le scroll du body
+
+            // Redimensionner l'image après chargement
+            lightboxImage.onload = function () {
+                const viewportWidth = window.innerWidth;
+                const viewportHeight = window.innerHeight;
+                const imageWidth = this.naturalWidth;
+                const imageHeight = this.naturalHeight;
+
+                // Calculer les dimensions optimales
+                const maxWidth = Math.min(viewportWidth - 32, imageWidth); // -32px pour le padding
+                const maxHeight = Math.min(viewportHeight - 32, imageHeight);
+
+                // Calculer le ratio pour garder les proportions
+                const ratio = Math.min(maxWidth / imageWidth, maxHeight / imageHeight);
+
+                if (ratio < 1) {
+                    this.style.width = (imageWidth * ratio) + 'px';
+                    this.style.height = (imageHeight * ratio) + 'px';
+                } else {
+                    // Si l'image est plus petite que l'écran, l'afficher en taille réelle
+                    this.style.width = imageWidth + 'px';
+                    this.style.height = imageHeight + 'px';
+                }
+            };
+        }
+
+        // Fonction pour fermer le lightbox
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.add('hidden');
+            document.body.style.overflow = 'auto'; // Remet le scroll du body
+        }
+
+        // Fermer avec la touche Échap
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+
+        // Fermer en cliquant sur le fond (mais pas sur l'image)
+        document.getElementById('lightbox').addEventListener('click', function (event) {
+            if (event.target === this) {
+                closeLightbox();
+            }
+        });
+
+        // Redimensionner l'image si la fenêtre change de taille
+        window.addEventListener('resize', function () {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightbox-image');
+
+            if (!lightbox.classList.contains('hidden') && lightboxImage.src) {
+                // Recalculer les dimensions
+                const viewportWidth = window.innerWidth;
+                const viewportHeight = window.innerHeight;
+                const imageWidth = lightboxImage.naturalWidth;
+                const imageHeight = lightboxImage.naturalHeight;
+
+                if (imageWidth && imageHeight) {
+                    const maxWidth = Math.min(viewportWidth - 32, imageWidth);
+                    const maxHeight = Math.min(viewportHeight - 32, imageHeight);
+                    const ratio = Math.min(maxWidth / imageWidth, maxHeight / imageHeight);
+
+                    if (ratio < 1) {
+                        lightboxImage.style.width = (imageWidth * ratio) + 'px';
+                        lightboxImage.style.height = (imageHeight * ratio) + 'px';
+                    } else {
+                        lightboxImage.style.width = imageWidth + 'px';
+                        lightboxImage.style.height = imageHeight + 'px';
+                    }
+                }
+            }
+        });
+    </script>
+
 </body>
 
 </html>

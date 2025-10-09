@@ -1,0 +1,22 @@
+{
+  "name": "bastdons-website",
+  "version": "1.0.0",
+  "description": "Site web du tournoi caritatif Bastdons",
+  "scripts": {
+    "optimize": "node optimize-images.js",
+    "convert-html": "node convert-html.js",
+    "full-optimize": "npm run optimize && npm run convert-html",
+    "serve": "python3 -m http.server 8000"
+  },
+  "devDependencies": {
+    "sharp": "^0.33.0"
+  },
+  "keywords": [
+    "bastdons",
+    "tournoi",
+    "caritatif",
+    "nancy"
+  ],
+  "author": "Bastdons Team",
+  "license": "MIT"
+}
